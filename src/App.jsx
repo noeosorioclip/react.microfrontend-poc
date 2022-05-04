@@ -2,8 +2,7 @@ import { Outlet, ReactLocation, Router } from "@tanstack/react-location";
 import React, { Suspense } from "react";
 import "./App.css";
 import { Choose } from "./pages/Choose";
-const RemoteApp = React.lazy(() => import("pikachu/App"));
-// const NavBar = React.lazy(() => import("pikachu/Navbar"));
+const RemoteApp = React.lazy(() => import("pokemon/App"));
 
 const App = () => {
   const location = new ReactLocation();

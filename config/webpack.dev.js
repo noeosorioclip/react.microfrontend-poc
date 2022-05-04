@@ -34,7 +34,7 @@ const devConfig = {
     new ModuleFederationPlugin({
       name: 'container',
       remotes: {
-        pikachu: 'pikachu@http://localhost:8081/remoteEntry.js',
+        pokemon: 'pokemon@http://localhost:8081/remoteEntry.js',
       },
       shared: packageJson.dependencies,
     }),

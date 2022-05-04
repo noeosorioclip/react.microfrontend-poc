@@ -1,8 +1,10 @@
+import React, { Suspense } from "react";
 import { makeStyles } from "@material-ui/styles";
 import { useNavigate } from "@tanstack/react-location";
-import React from "react";
-import { Pokemon } from "../components/Pokemon";
-import pokemons from "../pokemons.json";
+import {Pokemon} from "pokemon/PokemonCard";
+import pokeData from "pokemon/pokemons"
+
+const pokemons = pokeData()
 
 const useStyles = makeStyles({
   main__container: {
@@ -41,11 +43,12 @@ export function Choose() {
 
   const starters = ["pikachu", "riolu"];
   return (
+        <Suspense >
     <section className={classes.main__container}>
       <h1>Choose your starter</h1>
       <div className={classes.choose__container}>
         {starters.map((pokemon) => (
-          <Pokemon
+            <Pokemon
             onClick={() => onClick(pokemon)}
             pokemon={pokemons[pokemon]}
             key={`${pokemon}-starter-card`}
@@ -53,5 +56,6 @@ export function Choose() {
         ))}
       </div>
     </section>
+    </Suspense>
   );
 }
