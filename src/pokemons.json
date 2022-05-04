@@ -1,0 +1,29 @@
+{
+  "pikachu": {
+    "name": "Pikachu",
+    "number": 25,
+    "color": "#F3D87C",
+    "evolutions": ["pichu", "pikachu", "raichu"]
+  },
+  "pichu": {
+    "name": "Pichu",
+    "number": 172,
+    "color": "#F2E3AD"
+  },
+  "raichu": {
+    "name": "Raichu",
+    "number": 26,
+    "color": "#EFBA5D"
+  },
+  
+  "lucario": {
+    "name": "Lucario",
+    "number": 448,
+    "color": "#6693A5"
+  },
+  "riolu": {
+    "name": "Riolu",
+    "number": 447,
+    "color": "#6EA5BA"
+  }
+}
