@@ -1,14 +1,14 @@
 import React, { Suspense } from "react";
 import { makeStyles } from "@material-ui/styles";
 import { useNavigate } from "@tanstack/react-location";
-import {Pokemon} from "pokemon/PokemonCard";
-import pokeData from "pokemon/pokemons"
+import { Pokemon } from "pokemon/PokemonCard";
+import pokeData from "pokemon/pokemons";
 
-const pokemons = pokeData()
+const pokemons = pokeData();
 
 const useStyles = makeStyles({
   main__container: {
-    height: "100vh",
+    minHeight: "100vh",
     background: "#ECEFF1",
     color: "#546E7A",
     display: "flex",
@@ -16,11 +16,12 @@ const useStyles = makeStyles({
     justifyContent: "center",
     alignItems: "center",
     gap: "2em",
+    flexWrap:"nowrap",
 
     "& h1": {
       fontWeight: 700,
       fontSize: "2.5rem",
-      margin: 0,
+      margin: "2em",
     },
   },
   choose__container: {
@@ -30,6 +31,7 @@ const useStyles = makeStyles({
     justifyContent: "center",
     alignItems: "center",
     gap: "2em",
+    flexWrap:"wrap"
   },
 });
 
@@ -41,21 +43,21 @@ export function Choose() {
     navigate({ to: `./evolutions/${pokemonName}`, replace: false });
   };
 
-  const starters = ["pikachu", "riolu"];
+  const starters = ["pikachu", "riolu", "treecko", "torchic", "mudkip"];
   return (
-        <Suspense >
-    <section className={classes.main__container}>
-      <h1>Choose your starter</h1>
-      <div className={classes.choose__container}>
-        {starters.map((pokemon) => (
+    <Suspense>
+      <section className={classes.main__container}>
+        <h1>Choose your starter</h1>
+        <div className={classes.choose__container}>
+          {starters.map((pokemon) => (
             <Pokemon
-            onClick={() => onClick(pokemon)}
-            pokemon={pokemons[pokemon]}
-            key={`${pokemon}-starter-card`}
-          />
-        ))}
-      </div>
-    </section>
+              onClick={() => onClick(pokemon)}
+              pokemon={pokemons[pokemon]}
+              key={`${pokemon}-starter-card`}
+            />
+          ))}
+        </div>
+      </section>
     </Suspense>
   );
 }
